@@ -1,0 +1,153 @@
+\documentclass{report}
+\include{preamble}
+
+\title{\LectureTitle: Project 5}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{ Exercise 1}
+
+\subsection{E}
+This is the table of MSE for HD for three models using 1000 days' rolling window width. From the table, we see that HAR model achieves minimum MSE, so HAR model does best on the MSE criterion.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change\\
+\hline
+Rolling Window Width 1000 MSE& $3.1642*10^{-8}$ & $2.6720*10^{-8}$ & $3.7374*10^{-8}$\\
+\hline
+\end{tabular}
+\caption{ Stock HD MSE}
+\end{table}
+
+This is the table of MSE for VZ for three models using 1000 days' rolling window width. From the table, we see that HAR model achieves minimum MSE, so HAR model does best on the MSE criterion.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change\\
+\hline
+Rolling Window Width 1000 MSE& $7.3771*10^{-9}$ & $6.1253*10^{-9}$ & $8.9630*10^{-9}$\\
+\hline
+\end{tabular}
+\caption{ Stock VZ MSE}
+\end{table}
+\subsection{F}
+This is the table of MSE for HD for three models using 250, 500 and 1000 days' rolling window width. From the table, we found that HAR model always performs best when rolling window are 250, 500 and 1000, which means HAR model achieves minimum MSE using same rolling window.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change\\
+\hline
+Rolling Window Width 250 MSE& $1.5317*10^{-7}$ & $1.3162*10^{-7}$ & $1.5553*10^{-7}$\\
+\hline
+Rolling Window Width 500 MSE& $4.1967*10^{-8}$ & $3.4094*10^{-8}$ & $3.4671*10^{-8}$\\
+\hline
+Rolling Window Width 1000 MSE& $3.1642*10^{-8}$ & $2.6720*10^{-8}$ & $3.7374*10^{-8}$\\
+\hline
+\end{tabular}
+\caption{ Stock HD MSE using different Window widths}
+\end{table}
+
+This is the table of MSE for VZ for three models using 250, 500 and 1000 days' rolling window width. From the table, we found that HAR model performs best when rolling window are 500 and 1000, No Change model performs best when rolling window is 250.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change\\
+\hline
+Rolling Window Width 250 MSE& $1.1659*10^{-7}$ & $1.0068*10^{-7}$ & $9.3933*10^{-8}$\\
+\hline
+Rolling Window Width 500 MSE& $1.1632*10^{-8}$ & $8.8051*10^{-9}$ & $1.2428*10^{-8}$\\
+\hline
+Rolling Window Width 1000 MSE& $7.3771*10^{-9}$ & $6.1253*10^{-9}$ & $8.9630*10^{-9}$\\
+\hline
+\end{tabular}
+\caption{ Stock VZ MSE using different Window widths}
+\end{table}
+\subsection{G}
+
+I don't think the model generates in this way would be the best model. Although it achieves minimum MSE, it does not necessarily mean it can perdict future value with minimum error. For example, J may be very small like 2 or 5 and happened to give a relatively small MSE for a small data set, but it does not necessarily mean this J is the best J for a model. It really depends on our data set, so the model and window width chose in this way may not work best in evaluating new data.
+\section{ Exercise 2}
+
+\subsection{B}
+
+The OLS estimator for $\beta$ is 0.9959.
+
+\subsection{C}
+
+I expect it looks like a normal distribution centered at 1, since the beta we used to get the Y is 1 and there are no noises in x.
+
+\subsection{D}
+
+This is the distribution of the beta estimates. It does like a normal distribution certered at 1 with a standard deviation like 0.02.
+
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2D}
+\end{figure}
+
+\subsection{E}
+
+The OLS estimator for $\beta$ is 0.9341. I expect it still looks like a normal distribution but centered less than 1, snice x has noises. Acutually we have 
+$ \hat{\beta}$ converges to $\beta * \frac{Var(X)}{ Var(X)+Var(\epsilon)} $as N goes to infinity.
+This is the distribution of the beta estimates when $ \sigma_{\eta}^{2} = 0.30\sigma_{x}^{2}$. It looks like a normal distribution but certered less than 1 with a larger standard deviation like 0.04.
+ \begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2E}
+\end{figure}
+
+\subsection{F}
+This is the distribution of the beta estimates when $ \sigma_{\eta}^{2} = 0.50\sigma_{x}^{2}$. It still looks like a normal distribution but certered far less than 1 almost 0.8 with a larger standard deviation like 0.05. It is because the measurement error of x is higher and $ \hat{\beta}$ converges to $\beta * \frac{Var(X)}{ Var(X)+Var(\epsilon)} $as N goes to infinity.
+ \begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2F}
+\end{figure}
+
+\section{ Exercise 3}
+
+\subsection{A}
+This is the table of MSE for HD for three models using 250, 500 and 1000 days' rolling window width and MSE for AR and HAR Model with RQ correction using 1000 days' rolling window width.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change&ARQ&HARQ\\
+\hline
+Rolling Window Width 250 MSE& $1.5317*10^{-7}$ & $1.3162*10^{-7}$ & $1.5553*10^{-7}$ &NA &NA\\
+\hline
+Rolling Window Width 500 MSE& $4.1967*10^{-8}$ & $3.4094*10^{-8}$ & $3.4671*10^{-8}$ &NA &NA \\
+\hline
+Rolling Window Width 1000 MSE& $3.1642*10^{-8}$ & $2.6720*10^{-8}$ & $3.7374*10^{-8}$ & $2.3412*10^{-8}$ & $2.3206*10^{-8}$ \\
+\hline
+\end{tabular}
+\caption{ Stock HD MSE using different Models}
+\end{table}
+
+This is the table of MSE for VZ for three models using 250, 500 and 1000 days' rolling window width and MSE for AR and HAR Model with RQ correction using 1000 days' rolling window width.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Model&AR&HAR&No Change&ARQ&HARQ\\
+\hline
+Rolling Window Width 250 MSE& $1.1659*10^{-7}$ & $1.0068*10^{-7}$ & $8.9630*10^{-8}$ &NA &NA\\
+\hline
+Rolling Window Width 500 MSE& $1.1632*10^{-8}$ & $8.8051*10^{-9}$ & $1.2428*10^{-8}$ &NA &NA \\
+\hline
+Rolling Window Width 1000 MSE& $7.3771*10^{-9}$ & $6.1253*10^{-9}$ & $8.9630*10^{-9}$ & $6.6293*10^{-9}$ & $6.1778*10^{-9}$ \\
+\hline
+\end{tabular}
+\caption{ Stock VZ MSE using different Models}
+\end{table}
+\subsection{B}
+For Stock HD, Model HARQ with rolling window width 1000 has the smallest MSE. For Stock VZ, Model HAR with rolling window width 1000 has the smallest MSE. There is not a model that is consistently better for both of my stocks.
+\end{document}
